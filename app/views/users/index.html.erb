@@ -1,0 +1,46 @@
+<% if current_user && current_user.admin? %>
+
+<%= form_tag(users_search_path, method: :get) do %>
+  Search <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name<th>
+      <th>Mobile number</th>
+      <th>gender</th>
+      <th>CV</th>
+       <th>edit</th>
+      <th>delete</th>
+      </tr>
+  </thead>
+
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%=user.name%></td>
+        <td><%= user.mobile_number %></td>
+        <td><%= user.gender %></td>
+        <td> <%= link_to 'CV', user.upload %></td>   
+         <td><%= link_to 'edit', edit_user_path(user) %></td>
+         <td><%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
+
+    </tbody>
+</table>
+
+<br/>
+<%= link_to 'Filter by Males',  users_filter_path(gender:'Male')%>
+<br />
+<%= link_to 'Filter by Female',  users_filter_path(gender:'Female')%>
+<br />
+<%= link_to 'Download users data as Excel', users_path(format: :xlsx) %>
+<br/>
+<%= will_paginate @users %>
+<% end %>

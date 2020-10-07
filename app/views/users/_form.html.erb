@@ -1,0 +1,28 @@
+  <%= link_to 'Home', root_path %>
+  <%= form_for @user do |f| %>
+   <%= f.label :email %><br />
+   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+
+   <div class="field">
+    <%= f.label :mobile_number %><br />
+    <%= f.text_field :mobile_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Upload CV" %><br/>
+    <%= f.file_field :upload%>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select(:gender, ["Female", "Male"]) %>
+  </div>
+  <%= f.submit %>
+  <% end %>
