@@ -1,34 +1,5 @@
+<div class="container">
 <% if current_user && current_user.admin? %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Name<th>
-      <th>password</th>
-      <th>Mobile number</th>
-      <th>gender</th>
-      <th>CV</th>
-      </tr>
-  </thead>
-
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%=user.name%></td>
-        <td><%= user.encrypted_password %></td>
-        <td><%= user.mobile_number %></td>
-        <td><%= user.gender %></td>
-        <td> <%= link_to 'CV', user.upload %></td>   
-         <td><%= link_to 'edit', edit_user_path(user) %></td>
-         <td><%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <% end %>
-    </tbody>
-</table>
-
-<br/>
-<br/>
+<%= render 'dashboard' %>
 <% end %>
+</div>

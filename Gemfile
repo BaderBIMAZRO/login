@@ -14,6 +14,10 @@ gem 'will_paginate', '~> 3.1.0'
 #...
 gem 'rubyzip', '>= 1.2.1'
 #..
+gem 'bootstrap', '~> 5.0.0.alpha1'
+# bootstrap
+gem 'jquery-rails'
+#...
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 # xlsx
 gem 'axlsx_rails'

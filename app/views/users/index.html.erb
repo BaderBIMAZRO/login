@@ -1,46 +1,22 @@
 <% if current_user && current_user.admin? %>
-
+<div class="container">
+<div class="row g-3 align-items-center">
 <%= form_tag(users_search_path, method: :get) do %>
   Search <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %>
-<% end %>
+  <%= submit_tag 'Search', name: nil %> 
+  Filter
+  <%= link_to  '<button type="button">Male</button>'.html_safe,  users_filter_path(gender:'Male')%>
+  <%= link_to '<button type="button">Female</button>'.html_safe,   users_filter_path(gender:'Female')%>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Name<th>
-      <th>Mobile number</th>
-      <th>gender</th>
-      <th>CV</th>
-       <th>edit</th>
-      <th>delete</th>
-      </tr>
-  </thead>
-
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%=user.name%></td>
-        <td><%= user.mobile_number %></td>
-        <td><%= user.gender %></td>
-        <td> <%= link_to 'CV', user.upload %></td>   
-         <td><%= link_to 'edit', edit_user_path(user) %></td>
-         <td><%= link_to 'delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      </tr>
-
-    </tbody>
-</table>
-
+</div>
 <br/>
-<%= link_to 'Filter by Males',  users_filter_path(gender:'Male')%>
+<% end %>
+<%= render 'dashboard' %>
+<br/>
+
 <br />
-<%= link_to 'Filter by Female',  users_filter_path(gender:'Female')%>
-<br />
-<%= link_to 'Download users data as Excel', users_path(format: :xlsx) %>
+<%= link_to '<button type="button">users information as Excel </button>'.html_safe, users_path(format: :xlsx) %>
 <br/>
 <%= will_paginate @users %>
+</div>
 <% end %>

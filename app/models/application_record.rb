@@ -3,5 +3,6 @@ class ApplicationRecord < ActiveRecord::Base
   filter_by :gender
 
   validates :name, :gender, :mobile_number, presence: true
+  validates :upload, presence: true
   validates :mobile_number, length: { is: 9 }
 end

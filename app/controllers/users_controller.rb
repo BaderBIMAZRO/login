@@ -2,15 +2,12 @@ class UsersController < ApplicationController
     before_action :set_user, only: [ :edit, :update] # probably want to keep using this
  
     # GET /users
-    # GET /users.json
     def index
-
        @users=  User.paginate(page: params[:page]).where('admin !=?',true)
-  
-      
     end
    
     def filter
+         # TODO: filter by gender
         if params[:gender].blank?
             @users = User.all.where('admin !=?',true)
           else  
@@ -19,9 +16,9 @@ class UsersController < ApplicationController
               end
     end
 
-    # # GET /users/1
-    # # GET /users/1.json
+    # GET /users/1
     def search
+       # TODO: search
         if params[:search].blank?  
             @users = User.all.where('admin !=?',true)
           else  
@@ -31,7 +28,6 @@ class UsersController < ApplicationController
     end
 
     def excel
-        # TODO: filter by gender
         @users = User.all.where('admin !=?',true)
          # TODO EXCELL Buttom
          respond_to do |format|
@@ -50,8 +46,8 @@ class UsersController < ApplicationController
    
     end
    
-    # # PATCH/PUT /users/1
-    # # PATCH/PUT /users/1.json
+    # PATCH/PUT /users/1
+  
     def update
       respond_to do |format|
         if @user.update(user_params)
@@ -78,7 +74,7 @@ class UsersController < ApplicationController
       def set_user
         @user = User.find(params[:id])
       end
-   
+      # this is for search form parameter
       def search_params
         params.require(:models).permit(:search)
       end
