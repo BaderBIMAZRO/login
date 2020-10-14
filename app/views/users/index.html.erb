@@ -1,4 +1,7 @@
-<% if current_user && current_user.admin? %>
+
+
+ <% if current_user && current_user.admin? %> 
+
 <div class="container">
 <div class="row g-3 align-items-center">
 <%= form_tag(users_search_path, method: :get) do %>

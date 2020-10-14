@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/users/filter', to: 'users#filter'
   get '/users/search', to: 'users#search'
   get '/users', to: 'users#excel'
-  resources :users, only: [:index, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :edit, :update, :destroy]
   
 
  

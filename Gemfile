@@ -23,6 +23,12 @@ gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
 gem 'axlsx_rails'
 # rails axlsx 
 gem 'puma', '~> 3.11'
+#....
+gem 'caxlsx'
+#...
+gem 'seed_dump'
+#...
+gem 'caxlsx_rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
