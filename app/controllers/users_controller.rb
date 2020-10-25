@@ -3,7 +3,9 @@ class UsersController < ApplicationController
  
     # GET /users
     def index
-       @users=  User.paginate(page: params[:page]).where('admin !=?',true)
+   
+       @users = User.paginate(page: params[:page]).where('admin !=?',true)
+  
     end
    
     def filter

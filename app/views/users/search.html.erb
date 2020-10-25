@@ -1,6 +1,7 @@
 <% if current_user && current_user.admin? %>
 <div class="container">
 <h3>Search</h3>  
+<br>
 <%= form_tag(users_search_path, method: :get) do %>
   Search <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', name: nil %>
