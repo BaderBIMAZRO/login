@@ -36,7 +36,7 @@ class UsersController < ApplicationController
           format.xlsx {
             response.headers[
               'Content-Disposition'
-            ] = "attachment; filename=Data.xlsx"
+            ] = "attachment; filename=user_information.xlsx"
           }
           format.html { render :index }
         end

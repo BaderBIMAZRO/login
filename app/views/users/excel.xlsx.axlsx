@@ -1,9 +1,14 @@
 wb = xlsx_package.workbook
+border_color = '000000'
+wb.styles do |style|
+  heading = style.add_style(b: true, sz: 14, bg_color: 'FFFF33', border: { style: :thin, color: border_color, edges: [:top, :right, :bottom] })
+  info_style = style.add_style(sz: 12, border: { style: :thin, color: border_color, edges: [:top, :right, :bottom] })
 
 wb.add_worksheet(name: "Users") do |sheet|
   # Create the header row
-sheet.add_row ["Name", "Email", "Mobile", "Gender"]
+sheet.add_row ["Name", "Email", "Mobile", "Gender"], style: heading
   @users.each do |data|
-    sheet.add_row [data.name, data.email, data.mobile_number, data.gender]
+    sheet.add_row [data.name, data.email, data.mobile_number, data.gender], style: info_style
+    end
   end
 end
