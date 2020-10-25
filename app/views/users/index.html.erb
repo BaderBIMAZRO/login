@@ -3,11 +3,12 @@
 <div class="container">
 <div class="row g-3 align-items-center">
 <%= form_tag(users_search_path, method: :get) do %>
-  Search <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', name: nil %> 
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', :class => "btn btn-outline-dark", name: nil %> 
+  |
   Filter
-  <%= link_to  '<button type="button">Male</button>'.html_safe,  users_filter_path(gender:'Male')%>
-  <%= link_to '<button type="button">Female</button>'.html_safe,   users_filter_path(gender:'Female')%>
+  <%= link_to  '<button type="button" class="btn btn-outline-dark">Male</button>'.html_safe,  users_filter_path(gender:'Male')%>
+  <%= link_to '<button type="button" class="btn btn-outline-dark" >Female</button>'.html_safe,   users_filter_path(gender:'Female')%>
 
 </div>
 
@@ -17,7 +18,7 @@
 <br/>
 
 <br />
-<%= link_to '<button type="button">users information as Excel </button>'.html_safe, users_path(format: :xlsx) %>
+<%= link_to '<button type="button" class="btn btn-outline-dark" >users information as Excel </button>'.html_safe, users_path(format: :xlsx) %>
 <br/>
 <%= will_paginate @users %>
 </div>
