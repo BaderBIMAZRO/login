@@ -1,19 +1,9 @@
  <% if current_user && current_user.admin? %> 
- 
+
 <div class="container">
-<div class="row g-3 align-items-center">
-<%= form_tag(users_search_path, method: :get) do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag 'Search', :class => "btn btn-outline-dark", name: nil %> 
-  |
-  Filter
-  <%= link_to  '<button type="button" class="btn btn-outline-dark">Male</button>'.html_safe,  users_filter_path(gender:'Male')%>
-  <%= link_to '<button type="button" class="btn btn-outline-dark" >Female</button>'.html_safe,   users_filter_path(gender:'Female')%>
 
-</div>
+<%= render 'navbar' %>
 
-<br/>
-<% end %>
 <%= render 'dashboard' %>
 <br/>
 

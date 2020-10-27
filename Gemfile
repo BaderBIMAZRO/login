@@ -14,7 +14,7 @@ gem 'will_paginate', '~> 3.1.0'
 #...
 gem 'rubyzip', '>= 1.2.1'
 #..
-gem 'bootstrap', '~> 5.0.0.alpha1'
+#gem 'bootstrap', '~> 5.0.0.alpha1'
 # bootstrap
 gem 'jquery-rails'
 #...
@@ -55,6 +55,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap_form'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 
 group :development, :test do
   gem 'capybara'

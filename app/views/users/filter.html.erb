@@ -1,5 +1,6 @@
 <div class="container">
 <% if current_user && current_user.admin? %>
+<%= render 'navbar' %>
 <%= render 'dashboard' %>
 <% end %>
 </div>

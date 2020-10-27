@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light">
+ <a class="navbar-brand">Dashboard</a>
+<%= form_tag(users_search_path, method: :get, :class => "form-inline my-2 my-lg-0") do %>
+  <%= text_field_tag :search, params[:search], :class => "form-control mr-sm-2" %>
+  <%= submit_tag 'Search', :class => "btn btn-outline-dark", name: nil %> 
+  | 
+  Filter
+  <%= link_to  '<button type="button" class="btn btn-outline-dark">Male</button>'.html_safe,  users_filter_path(gender:'Male')%>
+  |
+  <%= link_to '<button type="button" class="btn btn-outline-dark" >Female</button>'.html_safe,   users_filter_path(gender:'Female')%>
+
+</nav>
+<br/>
+<% end %>
